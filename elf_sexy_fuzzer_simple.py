@@ -2,7 +2,7 @@
 
 import argparse
 import elf
-import random
+import secrets
 
 # Parse the command-line arguments.
 parser = argparse.ArgumentParser()
@@ -21,8 +21,7 @@ elf_file = elf.ELF(args.filepath)
 def generate_section_name():
   # Generate a random string of 8 characters.
   name = ""
-  for i in range(8):
-    name += chr(random.randint(32, 126))
+  name = secrets.token_bytes(8)
   return name
 
 # Fuzz the ELF file's section names.

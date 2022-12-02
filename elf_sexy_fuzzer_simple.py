@@ -6,9 +6,13 @@ import random
 
 # Parse the command-line arguments.
 parser = argparse.ArgumentParser()
-parser.add_argument("filepath", help="path to the ELF file")
-parser.add_argument("iterations", type=int, help="number of iterations to run")
+parser.add_argument("-f","filepath", help="path to the ELF file")
+parser.add_argument("-i", "iterations", type=int, help="number of iterations to run")
 args = parser.parse_args()
+
+# Handle the uninitialized argparse variable.
+if args.arg is None:
+  iterations = 1
 
 # Load the ELF file.
 elf_file = elf.ELF(args.filepath)

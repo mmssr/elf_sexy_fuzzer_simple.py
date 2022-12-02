@@ -32,7 +32,7 @@ for i in range(args.iterations):
     name = generate_section_name()
     print("Iteration ", i, ": Fuzzing section name: ", section.name, " -> ", name, "\n")
 
-    # Try to load the ELF file with the new section name.
+    # Try to save the ELF file with the new section name.
     try:
       section.name = name
       elf_file.save("path/to/output/file")
